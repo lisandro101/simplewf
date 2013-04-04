@@ -1,0 +1,28 @@
+﻿.spinner {
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin: 0 auto;
+    background: url(images/loader.gif) center center no-repeat;
+}
+
+.small-spinner {
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin: 0 auto;
+    background: url(images/small-loader.gif) center center no-repeat;
+}
+
+/*!
+ * Tab drop for Bootstrap
+ *
+ * Copyright 2012 Stefan Petre
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ */
+.nav-tabs,
+.nav-pills {
+  position: relative;
+}

@@ -1,0 +1,258 @@
+@initiated-color: #97BDD1;
+@start-color: #F2D694;
+@fail-color: #F5A2A2;
+@complete-color: #79BD9A;
+@width: 150px;
+@height: 50px;
+
+.color-border(@color){
+	background: @color;
+	border: 3px solid darken(@color, 30%);
+}
+.align{
+	display: table-cell;
+	vertical-align: middle;
+}
+.diagonal-gradient(@starting-color, @init, @end-color, @end){
+	background: @starting-color; /* Old browsers */
+	background: -moz-linear-gradient(45deg,  @starting-color @init, @end-color @end); /* FF3.6+ */
+	background: -webkit-gradient(linear, left bottom, right top, color-stop(@init, @starting-color), color-stop(@end, @end-color)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(45deg,  @starting-color @init, @end-color @end); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(45deg,  @starting-color @init, @end-color @end); /* Opera 11.10+ */
+	background: -ms-linear-gradient(45deg,  @starting-color @init, @end-color @end); /* IE10+ */
+	background: linear-gradient(45deg,  @starting-color @init, @end-color @end); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=@starting-color, endColorstr=@end-color,GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+.text-color(@color){
+	color: darken(@color, 50%);
+}
+
+.timer{
+   width: @width; 
+   height: @height;
+   -moz-border-radius: 50%; 
+   -webkit-border-radius: 50%; 
+   border-radius: 50%;
+   .align;
+}
+.timer-started{
+	.timer;
+	.color-border(@start-color);
+	.text-color(@start-color);
+}
+.timer-startfailed,
+.timer-canceled{
+	.timer;
+	.color-border(@fail-color);
+	.text-color(@fail-color);
+}
+.timer-fired{
+	.timer;
+	.color-border(@complete-color);
+	.text-color(@complete-color);
+}
+.timer-cancelfailed{
+	.timer;
+	.color-border(@start-color);
+	.text-color(@start-color);
+	.diagonal-gradient(@start-color, 58%, @fail-color, 80%);
+}
+
+.signal{
+	width: @width; 
+	height: @height;
+	border-radius: (@height/2);
+	.align;
+}
+.signal-signaled{
+	.signal;
+	.color-border(@complete-color);
+	.text-color(@complete-color);
+}
+
+.marker{ /*parallelogram*/
+   width: @width;
+   height: @height;
+   /* Skew */
+   -webkit-transform: skew(20deg); 
+   -moz-transform: skew(20deg); 
+   -o-transform: skew(20deg);
+   transform: skew(20deg);
+   .align;
+}
+.marker-marked{
+	.marker;
+	.color-border(@complete-color);
+	.text-color(@complete-color);
+}
+
+.externalcancellation{
+   height: 0; 
+   width: @width;
+   border-left: @height/2 solid transparent;
+   border-right: @height/2 solid transparent;
+   .align;
+}
+.externalcancellation-initiated{
+	.externalcancellation;
+	border-bottom: @height solid @initiated-color;
+	.text-color(@initiated-color);
+}
+.externalcancellation-requested{
+	.externalcancellation;
+	border-bottom: @height solid @complete-color;
+	.text-color(@complete-color);
+}
+.externalcancellation-requestcancelfailed{
+	.externalcancellation;
+	border-bottom: @height solid @fail-color;
+	.text-color(@fail-color);
+}
+
+.externalsignaling{ /*trapezium*/
+   height: 0; 
+   width: @width;
+   border-left: @height/2 solid transparent;
+   border-right: @height/2 solid transparent;
+   .align;
+}
+.externalsignaling-initiated{
+	.externalsignaling;
+	border-top: @height solid @initiated-color;
+	.text-color(@initiated-color);
+}
+.externalsignaling-signaled{
+	.externalsignaling;
+	border-top: @height solid @complete-color;
+	.text-color(@complete-color);
+}
+.externalsignaling-signalfailed{
+	.externalsignaling;
+	border-top: @height solid @fail-color;
+	.text-color(@fail-color);
+}
+
+.activity{ /*rectangle*/
+	width: @width;
+	height: @height;
+	border-radius: @height/5;
+	.align;
+}
+.activity-scheduled{
+	.activity;
+	.color-border(@initiated-color);
+	.text-color(@initiated-color);
+}
+.activity-scheduledfailed,
+.activity-failed,
+.activity-timedout,
+.activity-canceled{
+	.activity;
+	.color-border(@fail-color);
+	.text-color(@fail-color);
+}
+.activity-started{
+	.activity;
+	.color-border(@start-color);
+	.text-color(@start-color);
+}
+.activity-completed{
+	.activity;
+	.color-border(@complete-color);
+	.text-color(@complete-color);
+}
+.activity-cancelrequested,
+.activity-requestcancelfailed{
+	.activity;
+	.color-border(@start-color);
+	.diagonal-gradient(@start-color, 70%, @fail-color, 87%);
+	.text-color(@start-color);
+}
+
+.workflow{
+	border-radius:8px;
+	border-width: 2px;
+	border-style: solid;
+	display:block;
+	padding: 0 20px 0 0;
+	background-color: #eeeeee;
+	vertical-align: middle;
+	text-align: center;
+}
+.workflow-started{
+	.workflow;
+	border-color: @start-color;
+	.text-color(@start-color);
+}
+.workflow-completed,
+.workflow-continuedasnew{
+	.workflow;
+	border-color: @complete-color;
+	.text-color(@complete-color);
+}
+.workflow-failed,
+.workflow-timedout,
+.workflow-canceled,
+.workflow-terminated,
+.workflow-cancelrequested{
+	.workflow;
+	border-color: @fail-color;
+	.text-color(@fail-color);
+}
+
+.childworkflow{
+	border-radius:8px;
+	border-width: 2px;
+	border-style: solid;
+	background-color: #e5e5fb;
+	vertical-align: middle;
+}
+.childworkflow-initiated{
+	.childworkflow;
+	border-color: @initiated-color;
+	.text-color(@initiated-color);
+}
+.childworkflow-started{
+	.childworkflow;
+	border-color: @start-color;
+	.text-color(@start-color);
+}
+.childworkflow-startfailed,
+.childworkflow-failed,
+.childworkflow-timedout,
+.childworkflow-canceled,
+.childworkflow-terminated{
+	.childworkflow;
+	border-color: @fail-color;
+	.text-color(@fail-color);
+}
+.childworkflow-completed{
+	.childworkflow;
+	border-color: @complete-color;
+	.text-color(@complete-color);
+}
+
+.popover-detail{ 
+    word-break: break-all; 
+    min-width: 453px;
+}
+
+.workflow-text{
+    cursor:pointer;
+}
+.label-text{
+	display: inline-block;
+	cursor:pointer;
+	font-size: 11px;
+	font-family:helvetica;
+	width: 200px;
+	font-weight: bold;
+}
+.event-li{
+	margin: 35px 10px 35px 0;
+	display:block;
+	width: 100%;
+}
+.icon-placement{
+	float: right;
+}

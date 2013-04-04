@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple.Web", "Web\Simple.Web\Simple.Web.csproj", "{CD1D4C55-2DA5-4DC2-A6E9-AF989DB80ECA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{A2C7578F-AC3B-4211-B8D0-D1FCE17AA18F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{9C6EFA61-1058-47EB-B579-1F8B3C608F5B}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{2B77E5FD-6CE0-4C7F-AC27-6FD39C7AC170}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple.Core", "Core\Simple.Core\Simple.Core.csproj", "{4E9F0CBB-2AA1-46EA-B609-9BCD623ED190}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD1D4C55-2DA5-4DC2-A6E9-AF989DB80ECA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD1D4C55-2DA5-4DC2-A6E9-AF989DB80ECA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD1D4C55-2DA5-4DC2-A6E9-AF989DB80ECA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD1D4C55-2DA5-4DC2-A6E9-AF989DB80ECA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E9F0CBB-2AA1-46EA-B609-9BCD623ED190}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E9F0CBB-2AA1-46EA-B609-9BCD623ED190}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E9F0CBB-2AA1-46EA-B609-9BCD623ED190}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E9F0CBB-2AA1-46EA-B609-9BCD623ED190}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CD1D4C55-2DA5-4DC2-A6E9-AF989DB80ECA} = {A2C7578F-AC3B-4211-B8D0-D1FCE17AA18F}
+		{4E9F0CBB-2AA1-46EA-B609-9BCD623ED190} = {2B77E5FD-6CE0-4C7F-AC27-6FD39C7AC170}
+	EndGlobalSection
+EndGlobal

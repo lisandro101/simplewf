@@ -1,5 +1,5 @@
-simple.wf visualizer
-====================
+AWS Simple Workflow Service (SWF) Visualizer
+============================================
 
 ## Quick Start
 1. Download the code and enable NuGet Restore.
@@ -7,7 +7,7 @@ simple.wf visualizer
 3. Run!
 
 ## Features
-- Visualize your AWS SWF workflow execution
+- Visualize your AWS SWF workflow executions
 - Browse multiple executions and domains
 
 ## License
